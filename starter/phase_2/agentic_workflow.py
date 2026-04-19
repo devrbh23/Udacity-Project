@@ -129,19 +129,19 @@ development_engineer_evaluation_agent = EvaluationAgent(
 def product_manager_support_function(x):
     response = product_manager_knowledge_agent.respond(x)
     evaluation = product_manager_evaluation_agent.evaluate(x)
-    return {"response": response, "evaluation": evaluation}
+    return {"step": "user_stories", "response": response, "evaluation": evaluation}
 
 
 def program_manager_support_function(x):
     response = program_manager_knowledge_agent.respond(x)
     evaluation = program_manager_evaluation_agent.evaluate(x)
-    return {"response": response, "evaluation": evaluation}
+    return {"step": "features","response": response, "evaluation": evaluation}
 
 
 def development_engineer_support_function(x):
     response = development_engineer_knowledge_agent.respond(x)
     evaluation = development_engineer_evaluation_agent.evaluate(x)
-    return {"response": response, "evaluation": evaluation}
+    return {"step": "tasks", "response": response, "evaluation": evaluation}
 
 # Job function persona support functions
 
@@ -183,7 +183,11 @@ print(f"Task to complete in this workflow, workflow prompt = {workflow_prompt}")
 
 print("\nDefining workflow steps from the workflow prompt")
 steps = action_planning_agent.extract_steps_from_prompt(workflow_prompt)
-completed_steps = []
+results = {
+    "user_stories": [],
+    "features": [],
+    "tasks": []
+}
 
 for i, step in enumerate(steps):
 
@@ -194,32 +198,42 @@ for i, step in enumerate(steps):
 
     print("Result:")
     print(result)
-    completed_steps.append(result)
+
+    if result["step"] == "user_stories":
+        results["user_stories"].append(result["response"])
+
+    elif result["step"] == "features":
+        results["features"].append(result["response"])
+
+    elif result["step"] == "tasks":
+        results["tasks"].append(result["response"])
 
 print("\n==============================")
 print(" EMAIL ROUTER PROJECT PLAN")
 print("==============================\n")
 
-# Step outputs
-user_stories = completed_steps[0]["response"] if len(completed_steps) > 0 else ""
-features = completed_steps[1]["response"] if len(completed_steps) > 1 else ""
-tasks = completed_steps[2]["response"] if len(completed_steps) > 2 else ""
-
 print("USER STORIES")
 print("------------")
-print(user_stories)
+for item in results["user_stories"]:
+    print(item)
+    print()
 
-print("\nPRODUCT FEATURES")
+print("PRODUCT FEATURES")
 print("----------------")
-print(features)
+for item in results["features"]:
+    print(item)
+    print()
 
-print("\nENGINEERING TASKS")
+print("ENGINEERING TASKS")
 print("-----------------")
-print(tasks)
+for item in results["tasks"]:
+    print(item)
+    print()
 
-print("\n==============================")
+print("==============================")
 print(" END OF PROJECT PLAN")
 print("==============================")
+
 # TODO: 12 - Implement the workflow.
 #   1. Use the 'action_planning_agent' to extract steps from the 'workflow_prompt'.
 #   2. Initialize an empty list to store 'completed_steps'.
