@@ -41,20 +41,18 @@ agents = [
     {
         "name": "texas agent",
         "description": "Answer a question about Texas",
-        "func": lambda x: 
-        texas_agent.respond(x) # TODO: 5 - Call the Texas Agent to respond to prompts
+        "func": lambda x: texas_agent.respond(x) 
+        # TODO: 5 - Call the Texas Agent to respond to prompts
     },
     {
         "name": "europe agent",
         "description": "Answer a question about Europe",
-        "func": 
-        europe_agent.respond(x) # TODO: 6 - Define a function to call the Europe Agent
+        "func": lambda x: europe_agent.respond(x) # TODO: 6 - Define a function to call the Europe Agent
     },
     {
         "name": "math agent",
         "description": "When a prompt contains numbers, respond with a math formula",
-        "func": lambda x:
-        math_agent.respond(x)
+        "func": lambda x: math_agent.respond(x)
         # TODO: 7 - Define a function to call the Math Agent
     }
 ]

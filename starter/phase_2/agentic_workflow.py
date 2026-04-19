@@ -194,11 +194,32 @@ for i, step in enumerate(steps):
 
     print("Result:")
     print(result)
-
     completed_steps.append(result)
 
-print("\n*** FINAL OUTPUT ***\n")
-print(completed_steps[-1])
+print("\n==============================")
+print(" EMAIL ROUTER PROJECT PLAN")
+print("==============================\n")
+
+# Step outputs
+user_stories = completed_steps[0]["response"] if len(completed_steps) > 0 else ""
+features = completed_steps[1]["response"] if len(completed_steps) > 1 else ""
+tasks = completed_steps[2]["response"] if len(completed_steps) > 2 else ""
+
+print("USER STORIES")
+print("------------")
+print(user_stories)
+
+print("\nPRODUCT FEATURES")
+print("----------------")
+print(features)
+
+print("\nENGINEERING TASKS")
+print("-----------------")
+print(tasks)
+
+print("\n==============================")
+print(" END OF PROJECT PLAN")
+print("==============================")
 # TODO: 12 - Implement the workflow.
 #   1. Use the 'action_planning_agent' to extract steps from the 'workflow_prompt'.
 #   2. Initialize an empty list to store 'completed_steps'.

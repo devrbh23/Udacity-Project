@@ -1,1 +1,5 @@
-Paris
+Dear students, The capital of France is Paris.
+
+Explanation:
+Knowledge Source: The response was generated using the pretrained general knowledge of the language model.
+Persona Impact: Because of the system prompt, the response uses an academic tone and begins with 'Dear students,' as instructed.

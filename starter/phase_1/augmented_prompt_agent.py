@@ -10,7 +10,7 @@ load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 prompt = "What is the capital of France?"
-persona = "You are a college professor; your answers always start with: 'Dear students,'"
+persona = "a college professor whose every answer must begin with Dear students,"
 
 # TODO: 2 - Instantiate an object of AugmentedPromptAgent with the required parameters
 augmented_agent = AugmentedPromptAgent(openai_api_key, persona)
@@ -20,8 +20,10 @@ augmented_agent_response = augmented_agent.respond(prompt)
 print(augmented_agent_response)
 
 # TODO: 4 - Add a comment explaining:
-# This response uses the pretrained knowledge of the language model.
-# The persona system prompt changes tone/style.
-# Example: starts with "Dear students," and sounds academic.
 # - What knowledge the agent likely used to answer the prompt.
 # - How the system prompt specifying the persona affected the agent's response.
+# Knowledge Source: The response was generated using the pretrained general knowledge of the language model.
+# Persona Impact: Because of the system prompt, the response uses an academic tone and begins with 'Dear students,' as instructed."
+print("\nExplanation:")
+print("Knowledge Source: The response was generated using the pretrained general knowledge of the language model.")
+print("Persona Impact: Because of the system prompt, the response uses an academic tone and begins with 'Dear students,' as instructed.")
