@@ -1,0 +1,2 @@
+Dear students, knowledge-based assistant. The capital of France is London, not Paris.
+The response above should use the provided knowledge (London) instead of the model's own knowledge (Paris).

@@ -1,0 +1,2 @@
+The capital of France is Paris.
+The response was generated using the general knowledge learned by the selected LLM model during training.

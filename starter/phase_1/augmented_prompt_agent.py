@@ -20,8 +20,8 @@ augmented_agent_response = augmented_agent.respond(prompt)
 print(augmented_agent_response)
 
 # TODO: 4 - Add a comment explaining:
-# - The agent likely used general knowledge learned by the LLM during training.
-# - The persona in the system prompt changes the style/tone of the answer,
-# - causing the response to begin with "Dear students," and sound academic.
+# This response uses the pretrained knowledge of the language model.
+# The persona system prompt changes tone/style.
+# Example: starts with "Dear students," and sounds academic.
 # - What knowledge the agent likely used to answer the prompt.
 # - How the system prompt specifying the persona affected the agent's response.

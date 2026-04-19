@@ -67,7 +67,5 @@ routing_agent.agents = agents
 #           - "One story takes 2 days, and there are 20 stories"
 
 print(routing_agent.route("Tell me about the history of Rome, Texas"))
-print()
 print(routing_agent.route("Tell me about the history of Rome, Italy"))
-print()
 print(routing_agent.route("One story takes 2 days, and there are 20 stories"))

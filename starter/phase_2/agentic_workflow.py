@@ -1,12 +1,14 @@
 # agentic_workflow.py
 
 # TODO: 1 - Import the following agents: ActionPlanningAgent, KnowledgeAugmentedPromptAgent, EvaluationAgent, RoutingAgent from the workflow_agents.base_agents module
-from starter.phase_1.workflow_agents.base_agents import (
+
+from workflow_agents.base_agents import (
     ActionPlanningAgent,
     KnowledgeAugmentedPromptAgent,
     EvaluationAgent,
     RoutingAgent
 )
+
 import os
 from dotenv import load_dotenv
 
@@ -43,7 +45,8 @@ persona_product_manager = "You are a Product Manager, you are responsible for de
 knowledge_product_manager = (
     "Stories are defined by writing sentences with a persona, an action, and a desired outcome. "
     "The sentences always start with: As a "
-    "Write several stories for the product spec below, where the personas are the different users of the product. "
+    "Write several stories for the product spec below, where the personas are the different users of the product.\n\n"
+    + product_spec
     # TODO: 5 - Complete this knowledge string by appending the product_spec loaded in TODO 3
 )
 # TODO: 6 - Instantiate a product_manager_knowledge_agent using 'persona_product_manager' and the completed 'knowledge_product_manager'
