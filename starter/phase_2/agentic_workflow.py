@@ -200,13 +200,13 @@ for i, step in enumerate(steps):
     print(result)
 
     if result["step"] == "user_stories":
-        results["user_stories"].append(result["response"])
-
+        results["user_stories"].append(result["evaluation"]["final_response"])
+ 
     elif result["step"] == "features":
-        results["features"].append(result["response"])
-
+        results["features"].append(result["evaluation"]["final_response"])
+ 
     elif result["step"] == "tasks":
-        results["tasks"].append(result["response"])
+        results["tasks"].append(result["evaluation"]["final_response"])
 
 print("\n==============================")
 print(" EMAIL ROUTER PROJECT PLAN")
